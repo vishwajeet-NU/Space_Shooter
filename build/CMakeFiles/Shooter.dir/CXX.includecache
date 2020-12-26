@@ -82,14 +82,6 @@ controller.h
 base.h
 /home/vishwajeet/udacity_cpp/capstone/src/base.h
 
-/home/vishwajeet/udacity_cpp/capstone/src/renderer.cpp
-renderer.h
-/home/vishwajeet/udacity_cpp/capstone/src/renderer.h
-iostream
--
-string
--
-
 /home/vishwajeet/udacity_cpp/capstone/src/renderer.h
 vector
 -

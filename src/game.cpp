@@ -4,7 +4,7 @@
 
 
 
-Game::Game():_NumberOfEnemies(4), _EnemyStart_x(30), _EnemyStart_y(100),_EnemyGapSize_x(80), _EnemyGapSize_y(50), _status(true), engine(dev())
+Game::Game():_NumberOfEnemies(36), _EnemyStart_x(30), _EnemyStart_y(100),_EnemyGapSize_x(80), _EnemyGapSize_y(50), _status(true), engine(dev())
 {
     _boss_direction = Direction::left;
     _enemy_direction = Direction::left;
@@ -178,6 +178,34 @@ void Game::MoveBossBullets()
 }
 
 
+void Game::MoveEnemyBullets()
+{
+    int speed;
+    SDL_Point bullet_location; 
+    
+    if(_enemy_bullets.size()>0)
+    {
+        int counter = 0; 
+        for(auto itr:_enemy_bullets)
+        {
+            itr->GetBodySpeed(speed);
+            itr->GetBodyLocation(bullet_location);
+
+            int updated_x = bullet_location.x;
+            int updated_y = bullet_location.y + speed;
+            if(updated_y > (ScreenHeight - 10))
+            {
+                delete itr;
+                _enemy_bullets.erase(_enemy_bullets.begin()+counter);
+                break;
+            }
+            itr->SetBodyLocation( updated_x, updated_y );
+            counter++;
+        }
+    }
+}
+
+
 void Game::CheckPlayerBulletCollisions()
 {
     if(_player_bullets.size()>0)
@@ -271,6 +299,35 @@ void Game::CheckBossBulletCollisions()
     }
 }
 
+void Game::CheckEnemyBulletCollisions()
+{
+    if(_enemy_bullets.size()>0)
+    {
+        int bullet_counter = 0;
+        for(auto itr:_enemy_bullets)
+        {
+            SDL_Rect *bul = itr->GetRect();
+            SDL_Rect *user = _Player.GetRect();
+            SDL_bool collide = SDL_HasIntersection(bul,user);
+            if(collide)
+            {
+                _Player.ReduceLife();
+                delete itr;
+                _enemy_bullets.erase(_enemy_bullets.begin()+bullet_counter);
+
+                if(!_Player.LifeStatus())
+                {
+                    _status = false;
+                    break; 
+                }
+                collide = SDL_FALSE; 
+            }  
+
+            bullet_counter++;
+        }
+    }
+}
+
 void Game::CreateBossBullet()
 {
     if(_Boss_enemy->LifeStatus())
@@ -293,7 +350,6 @@ void Game::CreateEnemyBullet()
     {
         std::uniform_int_distribution<int> random_enemy(0,_NumberOfEnemies-1);
         int index = random_enemy(engine);
-        std::cout<<"inde = " << index <<"\n";
         enemy *source_enemy = _Enemy_instances[index];
         if(source_enemy->LifeStatus())
         {
@@ -321,8 +377,10 @@ void Game::Update(bool move_enemies)
     }
     MovePlayerBullets();
     MoveBossBullets();
+    MoveEnemyBullets();
     CheckPlayerBulletCollisions();
     CheckBossBulletCollisions();
+    CheckEnemyBulletCollisions();
 }
 
 void Game::loop(Renderer & renderer, Controller & controller)

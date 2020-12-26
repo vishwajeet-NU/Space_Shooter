@@ -20,10 +20,13 @@ private:
     void MoveEnemies();   
     void MovePlayerBullets();
     void MoveBossBullets();
+    void MoveEnemyBullets();
     void CheckPlayerBulletCollisions();
+    void CheckBossBulletCollisions();
+    void CheckEnemyBulletCollisions();
     void CreateBossBullet();
     void CreateEnemyBullet();
-    void CheckBossBulletCollisions();
+
 
     std::vector<enemy*> _Enemy_instances;
     player _Player;

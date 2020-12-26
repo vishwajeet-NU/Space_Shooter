@@ -114,11 +114,11 @@ void Renderer::Render(std::vector<enemy*> &ArrayEnemies, std::vector<bullet*> &P
   }
 
   // EnemyBullets 
-  if(PlayerBullets.size()>0)
+  if(EnemyBullets.size()>0)
   {
-    PlayerBullets[0]->ColorGetter(color);
+    EnemyBullets[0]->ColorGetter(color);
     SDL_SetRenderDrawColor(sdl_renderer, color.red, color.green, color.blue, 0xFF);
-    SDL_RenderFillRects(sdl_renderer, player_bullet_array, PlayerBullets.size());
+    SDL_RenderFillRects(sdl_renderer, enemy_bullet_array, EnemyBullets.size());
   }
 
 

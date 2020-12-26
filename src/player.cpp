@@ -11,6 +11,6 @@ player::player()
     _dim.x = ScreenWidth/2 - _dim.w/2;
     _dim.y = 600;
     _health = 3;
-    _body_speed = 3;
+    _body_speed = 2;
     _alive = true; 
 }

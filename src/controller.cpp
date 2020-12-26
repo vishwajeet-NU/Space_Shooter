@@ -58,19 +58,18 @@ void Controller::HandleInput(bool &running, player &Player_one, std::vector<bull
       switch (e.key.keysym.sym) 
       {
         case SDLK_LEFT:
-             Move(Direction::left, Player_one);
-             std::cout<<"Moving left \n ";
+             _LeftKeyLock = true;
+             
           break;
         case SDLK_RIGHT:
-              Move(Direction::right, Player_one);
-              std::cout<<"Moving right \n ";
-
+              // std::cout<<"Moving right \n ";
+             _RightKeyLock = true;
           break;
         case SDLK_SPACE:
               if(!_SpaceLock)
               {
                 Shoot(Player_one, Player_bullets);
-                std::cout<<"Pressed r\n ";
+                // std::cout<<"Pressed r\n ";
                 _SpaceLock = true;
               }
               // Shoot(Player_one, Player_bullets);
@@ -82,12 +81,31 @@ void Controller::HandleInput(bool &running, player &Player_one, std::vector<bull
     {
       switch (e.key.keysym.sym) 
       {
+        case SDLK_LEFT:
+             _LeftKeyLock = false;
+        break;
+
+        case SDLK_RIGHT:
+             _RightKeyLock = false;
+          break;
+
         case SDLK_SPACE:
               _SpaceLock = false;
-              std::cout<<"Released r\n ";
+              // std::cout<<"Released r\n ";
               // Shoot(Player_one, Player_bullets);
               // std::cout<<"Shooting \n ";
+          break;
       }
     }
   }
+  if(_LeftKeyLock)
+  {
+    Move(Direction::left, Player_one);
+  }
+  if(_RightKeyLock)
+  {
+    Move(Direction::right, Player_one);
+
+  }
+
 }

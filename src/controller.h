@@ -16,6 +16,8 @@ class Controller {
     void Move(Direction dir, player &Player_one);
     void Shoot(player &Player_one,  std::vector<bullet*> &Player_bullets);
     bool _SpaceLock{false};
+    bool _LeftKeyLock{false};
+    bool _RightKeyLock{false};
  
 };
 

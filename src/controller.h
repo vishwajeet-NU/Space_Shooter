@@ -11,10 +11,11 @@ enum Direction
 
 class Controller {
  public:
-  void HandleInput(bool &running, player &Player_one, std::vector<bullet*> &Player_bullets) const;
+  void HandleInput(bool &running, player &Player_one, std::vector<bullet*> &Player_bullets);
  private:
-    void Move(Direction dir, player &Player_one) const;
-    void Shoot(player &Player_one,  std::vector<bullet*> &Player_bullets) const;
+    void Move(Direction dir, player &Player_one);
+    void Shoot(player &Player_one,  std::vector<bullet*> &Player_bullets);
+    bool _SpaceLock{false};
  
 };
 

@@ -3,7 +3,7 @@
 #include "SDL.h"
 
 
-void Controller::Move(Direction dir, player &Player_one) const
+void Controller::Move(Direction dir, player &Player_one)
 {
   int speed;
   SDL_Point player_location; 
@@ -25,7 +25,7 @@ void Controller::Move(Direction dir, player &Player_one) const
   Player_one.SetBodyLocation( updated_x, updated_y );
 }
 
-void Controller::Shoot(player &Player_one, std::vector<bullet*> &Player_bullets) const
+void Controller::Shoot(player &Player_one, std::vector<bullet*> &Player_bullets)
 {
   bullet *Bullet_P = new bullet(Player_one);
   SDL_Point location;
@@ -40,27 +40,54 @@ void Controller::Shoot(player &Player_one, std::vector<bullet*> &Player_bullets)
 
 }
 
-void Controller::HandleInput(bool &running, player &Player_one, std::vector<bullet*> &Player_bullets)  const
+
+void Controller::HandleInput(bool &running, player &Player_one, std::vector<bullet*> &Player_bullets) 
 {
   SDL_Event e;
-  while (SDL_PollEvent(&e)) {
-    if (e.type == SDL_QUIT) {
+
+  while (SDL_PollEvent(&e)) 
+  {
+   
+    if (e.type == SDL_QUIT) 
+    {
       running = false;
-    } 
+    }
+
     else if (e.type == SDL_KEYDOWN) 
     {
-      switch (e.key.keysym.sym) {
-
+      switch (e.key.keysym.sym) 
+      {
         case SDLK_LEFT:
              Move(Direction::left, Player_one);
+             std::cout<<"Moving left \n ";
           break;
         case SDLK_RIGHT:
               Move(Direction::right, Player_one);
+              std::cout<<"Moving right \n ";
+
           break;
         case SDLK_SPACE:
-              Shoot(Player_one, Player_bullets);
+              if(!_SpaceLock)
+              {
+                Shoot(Player_one, Player_bullets);
+                std::cout<<"Pressed r\n ";
+                _SpaceLock = true;
+              }
+              // Shoot(Player_one, Player_bullets);
+              // std::cout<<"Shooting \n ";
       }
     }
 
+    else if (e.type == SDL_KEYUP) 
+    {
+      switch (e.key.keysym.sym) 
+      {
+        case SDLK_SPACE:
+              _SpaceLock = false;
+              std::cout<<"Released r\n ";
+              // Shoot(Player_one, Player_bullets);
+              // std::cout<<"Shooting \n ";
+      }
+    }
   }
 }

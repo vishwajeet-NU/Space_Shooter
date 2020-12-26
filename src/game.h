@@ -18,14 +18,18 @@ private:
     void Update(bool move_enemies);
     void MoveBoss();
     void MoveEnemies();   
+
+    void CreateBossBullet();
+    void CreateEnemyBullet();
+
     void MovePlayerBullets();
     void MoveBossBullets();
     void MoveEnemyBullets();
+
     void CheckPlayerBulletCollisions();
     void CheckBossBulletCollisions();
     void CheckEnemyBulletCollisions();
-    void CreateBossBullet();
-    void CreateEnemyBullet();
+
 
 
     std::vector<enemy*> _Enemy_instances;

@@ -119,6 +119,46 @@ void Game::MoveEnemies()
     }
 }
 
+
+
+void Game::CreateBossBullet()
+{
+    if(_Boss_enemy->LifeStatus())
+    {
+      bullet *Bullet_B = new bullet((*_Boss_enemy));
+      SDL_Point location;
+      int width, height;
+      _Boss_enemy->GetBodyDimension(width,height);
+      _Boss_enemy->GetBodyLocation(location);
+      int loc1 = location.x + width/2;
+      int loc2 = location.y + height;
+      Bullet_B->SetBodyLocation(loc1,loc2);
+      _boss_bullets.emplace_back(Bullet_B);
+    }
+}
+
+void Game::CreateEnemyBullet()
+{
+    if(_Enemy_instances.size()>0)
+    {
+        std::uniform_int_distribution<int> random_enemy(0,_NumberOfEnemies-1);
+        int index = random_enemy(engine);
+        enemy *source_enemy = _Enemy_instances[index];
+        if(source_enemy->LifeStatus())
+        {
+            bullet *Bullet_E = new bullet((*source_enemy));
+            SDL_Point location;
+            int width, height;
+            source_enemy->GetBodyDimension(width,height);
+            source_enemy->GetBodyLocation(location);
+            int loc1 = location.x + width/2;
+            int loc2 = location.y + height;
+            Bullet_E->SetBodyLocation(loc1,loc2);
+            _enemy_bullets.emplace_back(Bullet_E);
+        }
+    }
+}
+
 void Game::MovePlayerBullets()
 {
     int speed;
@@ -206,6 +246,7 @@ void Game::MoveEnemyBullets()
 }
 
 
+
 void Game::CheckPlayerBulletCollisions()
 {
     if(_player_bullets.size()>0)
@@ -266,8 +307,6 @@ void Game::CheckPlayerBulletCollisions()
         }
     }
 
-
-
 }
 
 void Game::CheckBossBulletCollisions()
@@ -324,44 +363,6 @@ void Game::CheckEnemyBulletCollisions()
             }  
 
             bullet_counter++;
-        }
-    }
-}
-
-void Game::CreateBossBullet()
-{
-    if(_Boss_enemy->LifeStatus())
-    {
-      bullet *Bullet_B = new bullet((*_Boss_enemy));
-      SDL_Point location;
-      int width, height;
-      _Boss_enemy->GetBodyDimension(width,height);
-      _Boss_enemy->GetBodyLocation(location);
-      int loc1 = location.x + width/2;
-      int loc2 = location.y + height;
-      Bullet_B->SetBodyLocation(loc1,loc2);
-      _boss_bullets.emplace_back(Bullet_B);
-    }
-}
-
-void Game::CreateEnemyBullet()
-{
-    if(_Enemy_instances.size()>0)
-    {
-        std::uniform_int_distribution<int> random_enemy(0,_NumberOfEnemies-1);
-        int index = random_enemy(engine);
-        enemy *source_enemy = _Enemy_instances[index];
-        if(source_enemy->LifeStatus())
-        {
-            bullet *Bullet_E = new bullet((*source_enemy));
-            SDL_Point location;
-            int width, height;
-            source_enemy->GetBodyDimension(width,height);
-            source_enemy->GetBodyLocation(location);
-            int loc1 = location.x + width/2;
-            int loc2 = location.y + height;
-            Bullet_E->SetBodyLocation(loc1,loc2);
-            _enemy_bullets.emplace_back(Bullet_E);
         }
     }
 }

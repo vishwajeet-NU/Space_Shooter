@@ -30,6 +30,14 @@ boss_enemy.h
 iostream
 -
 
+/home/vishwajeet/udacity_cpp/capstone/src/controller.cpp
+controller.h
+/home/vishwajeet/udacity_cpp/capstone/src/controller.h
+iostream
+-
+SDL.h
+/home/vishwajeet/udacity_cpp/capstone/src/SDL.h
+
 /home/vishwajeet/udacity_cpp/capstone/src/controller.h
 player.h
 /home/vishwajeet/udacity_cpp/capstone/src/player.h

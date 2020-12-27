@@ -6,27 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/home/vishwajeet/udacity_cpp/capstone/src/base.cpp
-base.h
-/home/vishwajeet/udacity_cpp/capstone/src/base.h
-
 /home/vishwajeet/udacity_cpp/capstone/src/base.h
 SDL.h
 /home/vishwajeet/udacity_cpp/capstone/src/SDL.h
 common.h
 /home/vishwajeet/udacity_cpp/capstone/src/common.h
 
-/home/vishwajeet/udacity_cpp/capstone/src/boss_enemy.cpp
-boss_enemy.h
-/home/vishwajeet/udacity_cpp/capstone/src/boss_enemy.h
-
 /home/vishwajeet/udacity_cpp/capstone/src/boss_enemy.h
 base.h
 /home/vishwajeet/udacity_cpp/capstone/src/base.h
-
-/home/vishwajeet/udacity_cpp/capstone/src/bullet.cpp
-bullet.h
-/home/vishwajeet/udacity_cpp/capstone/src/bullet.h
 
 /home/vishwajeet/udacity_cpp/capstone/src/bullet.h
 base.h
@@ -38,17 +26,23 @@ enemy.h
 boss_enemy.h
 /home/vishwajeet/udacity_cpp/capstone/src/boss_enemy.h
 
+/home/vishwajeet/udacity_cpp/capstone/src/collision.h
+boss_enemy.h
+/home/vishwajeet/udacity_cpp/capstone/src/boss_enemy.h
+player.h
+/home/vishwajeet/udacity_cpp/capstone/src/player.h
+enemy.h
+/home/vishwajeet/udacity_cpp/capstone/src/enemy.h
+bullet.h
+/home/vishwajeet/udacity_cpp/capstone/src/bullet.h
+
+/home/vishwajeet/udacity_cpp/capstone/src/collison.cpp
+collision.h
+/home/vishwajeet/udacity_cpp/capstone/src/collision.h
+
 /home/vishwajeet/udacity_cpp/capstone/src/common.h
 iostream
 -
-
-/home/vishwajeet/udacity_cpp/capstone/src/controller.cpp
-controller.h
-/home/vishwajeet/udacity_cpp/capstone/src/controller.h
-iostream
--
-SDL.h
-/home/vishwajeet/udacity_cpp/capstone/src/SDL.h
 
 /home/vishwajeet/udacity_cpp/capstone/src/controller.h
 player.h
@@ -58,9 +52,21 @@ common.h
 bullet.h
 /home/vishwajeet/udacity_cpp/capstone/src/bullet.h
 
-/home/vishwajeet/udacity_cpp/capstone/src/enemy.cpp
+/home/vishwajeet/udacity_cpp/capstone/src/create_bullets.h
+boss_enemy.h
+/home/vishwajeet/udacity_cpp/capstone/src/boss_enemy.h
 enemy.h
 /home/vishwajeet/udacity_cpp/capstone/src/enemy.h
+bullet.h
+/home/vishwajeet/udacity_cpp/capstone/src/bullet.h
+vector
+-
+SDL.h
+/home/vishwajeet/udacity_cpp/capstone/src/SDL.h
+common.h
+/home/vishwajeet/udacity_cpp/capstone/src/common.h
+random
+-
 
 /home/vishwajeet/udacity_cpp/capstone/src/enemy.h
 base.h
@@ -77,8 +83,6 @@ thread
 -
 
 /home/vishwajeet/udacity_cpp/capstone/src/game.h
-random
--
 renderer.h
 /home/vishwajeet/udacity_cpp/capstone/src/renderer.h
 player.h
@@ -89,6 +93,14 @@ boss_enemy.h
 /home/vishwajeet/udacity_cpp/capstone/src/boss_enemy.h
 controller.h
 /home/vishwajeet/udacity_cpp/capstone/src/controller.h
+move.h
+/home/vishwajeet/udacity_cpp/capstone/src/move.h
+create_bullets.h
+/home/vishwajeet/udacity_cpp/capstone/src/create_bullets.h
+collision.h
+/home/vishwajeet/udacity_cpp/capstone/src/collision.h
+common.h
+/home/vishwajeet/udacity_cpp/capstone/src/common.h
 
 /home/vishwajeet/udacity_cpp/capstone/src/main.cpp
 iostream
@@ -102,21 +114,23 @@ game.h
 controller.h
 /home/vishwajeet/udacity_cpp/capstone/src/controller.h
 
-/home/vishwajeet/udacity_cpp/capstone/src/player.cpp
-player.h
-/home/vishwajeet/udacity_cpp/capstone/src/player.h
+/home/vishwajeet/udacity_cpp/capstone/src/move.h
+boss_enemy.h
+/home/vishwajeet/udacity_cpp/capstone/src/boss_enemy.h
+bullet.h
+/home/vishwajeet/udacity_cpp/capstone/src/bullet.h
+enemy.h
+/home/vishwajeet/udacity_cpp/capstone/src/enemy.h
+vector
+-
+SDL.h
+/home/vishwajeet/udacity_cpp/capstone/src/SDL.h
+common.h
+/home/vishwajeet/udacity_cpp/capstone/src/common.h
 
 /home/vishwajeet/udacity_cpp/capstone/src/player.h
 base.h
 /home/vishwajeet/udacity_cpp/capstone/src/base.h
-
-/home/vishwajeet/udacity_cpp/capstone/src/renderer.cpp
-renderer.h
-/home/vishwajeet/udacity_cpp/capstone/src/renderer.h
-iostream
--
-string
--
 
 /home/vishwajeet/udacity_cpp/capstone/src/renderer.h
 vector

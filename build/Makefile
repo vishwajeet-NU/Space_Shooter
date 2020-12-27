@@ -204,6 +204,33 @@ src/bullet.cpp.s:
 	$(MAKE) -f CMakeFiles/Shooter.dir/build.make CMakeFiles/Shooter.dir/src/bullet.cpp.s
 .PHONY : src/bullet.cpp.s
 
+src/collison.o: src/collison.cpp.o
+
+.PHONY : src/collison.o
+
+# target to build an object file
+src/collison.cpp.o:
+	$(MAKE) -f CMakeFiles/Shooter.dir/build.make CMakeFiles/Shooter.dir/src/collison.cpp.o
+.PHONY : src/collison.cpp.o
+
+src/collison.i: src/collison.cpp.i
+
+.PHONY : src/collison.i
+
+# target to preprocess a source file
+src/collison.cpp.i:
+	$(MAKE) -f CMakeFiles/Shooter.dir/build.make CMakeFiles/Shooter.dir/src/collison.cpp.i
+.PHONY : src/collison.cpp.i
+
+src/collison.s: src/collison.cpp.s
+
+.PHONY : src/collison.s
+
+# target to generate assembly for a file
+src/collison.cpp.s:
+	$(MAKE) -f CMakeFiles/Shooter.dir/build.make CMakeFiles/Shooter.dir/src/collison.cpp.s
+.PHONY : src/collison.cpp.s
+
 src/controller.o: src/controller.cpp.o
 
 .PHONY : src/controller.o
@@ -230,6 +257,33 @@ src/controller.s: src/controller.cpp.s
 src/controller.cpp.s:
 	$(MAKE) -f CMakeFiles/Shooter.dir/build.make CMakeFiles/Shooter.dir/src/controller.cpp.s
 .PHONY : src/controller.cpp.s
+
+src/create_bullets.o: src/create_bullets.cpp.o
+
+.PHONY : src/create_bullets.o
+
+# target to build an object file
+src/create_bullets.cpp.o:
+	$(MAKE) -f CMakeFiles/Shooter.dir/build.make CMakeFiles/Shooter.dir/src/create_bullets.cpp.o
+.PHONY : src/create_bullets.cpp.o
+
+src/create_bullets.i: src/create_bullets.cpp.i
+
+.PHONY : src/create_bullets.i
+
+# target to preprocess a source file
+src/create_bullets.cpp.i:
+	$(MAKE) -f CMakeFiles/Shooter.dir/build.make CMakeFiles/Shooter.dir/src/create_bullets.cpp.i
+.PHONY : src/create_bullets.cpp.i
+
+src/create_bullets.s: src/create_bullets.cpp.s
+
+.PHONY : src/create_bullets.s
+
+# target to generate assembly for a file
+src/create_bullets.cpp.s:
+	$(MAKE) -f CMakeFiles/Shooter.dir/build.make CMakeFiles/Shooter.dir/src/create_bullets.cpp.s
+.PHONY : src/create_bullets.cpp.s
 
 src/enemy.o: src/enemy.cpp.o
 
@@ -312,6 +366,33 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/Shooter.dir/build.make CMakeFiles/Shooter.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/move.o: src/move.cpp.o
+
+.PHONY : src/move.o
+
+# target to build an object file
+src/move.cpp.o:
+	$(MAKE) -f CMakeFiles/Shooter.dir/build.make CMakeFiles/Shooter.dir/src/move.cpp.o
+.PHONY : src/move.cpp.o
+
+src/move.i: src/move.cpp.i
+
+.PHONY : src/move.i
+
+# target to preprocess a source file
+src/move.cpp.i:
+	$(MAKE) -f CMakeFiles/Shooter.dir/build.make CMakeFiles/Shooter.dir/src/move.cpp.i
+.PHONY : src/move.cpp.i
+
+src/move.s: src/move.cpp.s
+
+.PHONY : src/move.s
+
+# target to generate assembly for a file
+src/move.cpp.s:
+	$(MAKE) -f CMakeFiles/Shooter.dir/build.make CMakeFiles/Shooter.dir/src/move.cpp.s
+.PHONY : src/move.cpp.s
+
 src/player.o: src/player.cpp.o
 
 .PHONY : src/player.o
@@ -384,9 +465,15 @@ help:
 	@echo "... src/bullet.o"
 	@echo "... src/bullet.i"
 	@echo "... src/bullet.s"
+	@echo "... src/collison.o"
+	@echo "... src/collison.i"
+	@echo "... src/collison.s"
 	@echo "... src/controller.o"
 	@echo "... src/controller.i"
 	@echo "... src/controller.s"
+	@echo "... src/create_bullets.o"
+	@echo "... src/create_bullets.i"
+	@echo "... src/create_bullets.s"
 	@echo "... src/enemy.o"
 	@echo "... src/enemy.i"
 	@echo "... src/enemy.s"
@@ -396,6 +483,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/move.o"
+	@echo "... src/move.i"
+	@echo "... src/move.s"
 	@echo "... src/player.o"
 	@echo "... src/player.i"
 	@echo "... src/player.s"

@@ -1,12 +1,16 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <random>
 #include "renderer.h"
 #include "player.h"
 #include "enemy.h"
 #include "boss_enemy.h"
 #include "controller.h"
+#include "move.h"
+#include "create_bullets.h"
+#include "collision.h"
+#include "common.h"
+
 
 class Game
 {
@@ -16,27 +20,13 @@ public:
     ~Game();
 private: 
     void Update(bool move_enemies);
-    void MoveBoss();
-    void MoveEnemies();   
-
-    void CreateBossBullet();
-    void CreateEnemyBullet();
-
-    void MovePlayerBullets();
-    void MoveBossBullets();
-    void MoveEnemyBullets();
-
-    void CheckPlayerBulletCollisions();
-    void CheckBossBulletCollisions();
-    void CheckEnemyBulletCollisions();
-
-
 
     std::vector<enemy*> _Enemy_instances;
     player _Player;
     boss * _Boss_enemy;
-    Direction _boss_direction; 
-    Direction _enemy_direction; 
+
+    Direction _boss_direction;
+    Direction _enemy_direction;
  
     std::vector<bullet*> _player_bullets;
     std::vector<bullet*> _boss_bullets;
@@ -53,6 +43,8 @@ private:
 
     bool _status;
     int _score;
+
+    int _level; 
 
 };
 

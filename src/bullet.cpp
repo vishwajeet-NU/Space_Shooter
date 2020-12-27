@@ -24,7 +24,7 @@ bullet::bullet(player &P)
     _dim.w = 3;
     _dim.h = 6;
     _health = 1;
-    _body_speed = 2;
+    _body_speed = -2;
     _alive = true; 
 
 }

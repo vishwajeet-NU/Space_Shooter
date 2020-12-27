@@ -7,7 +7,7 @@
 int main ()
 
 {
-    Renderer renderer(ScreenWidth, ScreenHeight, GridWidth, GridHeight);
+    Renderer renderer(ScreenWidth, ScreenHeight);
     Game mygame;
     Controller controller; 
     mygame.loop(renderer, controller);

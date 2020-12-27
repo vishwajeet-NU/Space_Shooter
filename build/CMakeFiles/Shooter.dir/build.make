@@ -174,6 +174,45 @@ CMakeFiles/Shooter.dir/src/bullet.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Shooter.dir/src/bullet.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vishwajeet/udacity_cpp/capstone/src/bullet.cpp -o CMakeFiles/Shooter.dir/src/bullet.cpp.s
 
+CMakeFiles/Shooter.dir/src/move.cpp.o: CMakeFiles/Shooter.dir/flags.make
+CMakeFiles/Shooter.dir/src/move.cpp.o: ../src/move.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vishwajeet/udacity_cpp/capstone/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Shooter.dir/src/move.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Shooter.dir/src/move.cpp.o -c /home/vishwajeet/udacity_cpp/capstone/src/move.cpp
+
+CMakeFiles/Shooter.dir/src/move.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Shooter.dir/src/move.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vishwajeet/udacity_cpp/capstone/src/move.cpp > CMakeFiles/Shooter.dir/src/move.cpp.i
+
+CMakeFiles/Shooter.dir/src/move.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Shooter.dir/src/move.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vishwajeet/udacity_cpp/capstone/src/move.cpp -o CMakeFiles/Shooter.dir/src/move.cpp.s
+
+CMakeFiles/Shooter.dir/src/create_bullets.cpp.o: CMakeFiles/Shooter.dir/flags.make
+CMakeFiles/Shooter.dir/src/create_bullets.cpp.o: ../src/create_bullets.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vishwajeet/udacity_cpp/capstone/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Shooter.dir/src/create_bullets.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Shooter.dir/src/create_bullets.cpp.o -c /home/vishwajeet/udacity_cpp/capstone/src/create_bullets.cpp
+
+CMakeFiles/Shooter.dir/src/create_bullets.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Shooter.dir/src/create_bullets.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vishwajeet/udacity_cpp/capstone/src/create_bullets.cpp > CMakeFiles/Shooter.dir/src/create_bullets.cpp.i
+
+CMakeFiles/Shooter.dir/src/create_bullets.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Shooter.dir/src/create_bullets.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vishwajeet/udacity_cpp/capstone/src/create_bullets.cpp -o CMakeFiles/Shooter.dir/src/create_bullets.cpp.s
+
+CMakeFiles/Shooter.dir/src/collison.cpp.o: CMakeFiles/Shooter.dir/flags.make
+CMakeFiles/Shooter.dir/src/collison.cpp.o: ../src/collison.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vishwajeet/udacity_cpp/capstone/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Shooter.dir/src/collison.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Shooter.dir/src/collison.cpp.o -c /home/vishwajeet/udacity_cpp/capstone/src/collison.cpp
+
+CMakeFiles/Shooter.dir/src/collison.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Shooter.dir/src/collison.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vishwajeet/udacity_cpp/capstone/src/collison.cpp > CMakeFiles/Shooter.dir/src/collison.cpp.i
+
+CMakeFiles/Shooter.dir/src/collison.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Shooter.dir/src/collison.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vishwajeet/udacity_cpp/capstone/src/collison.cpp -o CMakeFiles/Shooter.dir/src/collison.cpp.s
+
 # Object files for target Shooter
 Shooter_OBJECTS = \
 "CMakeFiles/Shooter.dir/src/main.cpp.o" \
@@ -184,7 +223,10 @@ Shooter_OBJECTS = \
 "CMakeFiles/Shooter.dir/src/player.cpp.o" \
 "CMakeFiles/Shooter.dir/src/boss_enemy.cpp.o" \
 "CMakeFiles/Shooter.dir/src/enemy.cpp.o" \
-"CMakeFiles/Shooter.dir/src/bullet.cpp.o"
+"CMakeFiles/Shooter.dir/src/bullet.cpp.o" \
+"CMakeFiles/Shooter.dir/src/move.cpp.o" \
+"CMakeFiles/Shooter.dir/src/create_bullets.cpp.o" \
+"CMakeFiles/Shooter.dir/src/collison.cpp.o"
 
 # External object files for target Shooter
 Shooter_EXTERNAL_OBJECTS =
@@ -198,11 +240,14 @@ Shooter: CMakeFiles/Shooter.dir/src/player.cpp.o
 Shooter: CMakeFiles/Shooter.dir/src/boss_enemy.cpp.o
 Shooter: CMakeFiles/Shooter.dir/src/enemy.cpp.o
 Shooter: CMakeFiles/Shooter.dir/src/bullet.cpp.o
+Shooter: CMakeFiles/Shooter.dir/src/move.cpp.o
+Shooter: CMakeFiles/Shooter.dir/src/create_bullets.cpp.o
+Shooter: CMakeFiles/Shooter.dir/src/collison.cpp.o
 Shooter: CMakeFiles/Shooter.dir/build.make
 Shooter: /usr/lib/x86_64-linux-gnu/libSDL2_image.so
 Shooter: /usr/local/lib/libSDL2_ttf.so
 Shooter: CMakeFiles/Shooter.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/vishwajeet/udacity_cpp/capstone/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable Shooter"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/vishwajeet/udacity_cpp/capstone/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable Shooter"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Shooter.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -9,5 +9,4 @@ class player: public base_shape
 
 };
 
-
 #endif

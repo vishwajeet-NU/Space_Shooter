@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=c++17
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/include/SDL2 -I/home/vishwajeet/udacity_cpp/capstone/src 
+CXX_INCLUDES = -I/usr/include/SDL2 -I/usr/local/include/SDL2 -I/home/vishwajeet/udacity_cpp/capstone/src 
 

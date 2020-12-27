@@ -199,6 +199,7 @@ Shooter: CMakeFiles/Shooter.dir/src/boss_enemy.cpp.o
 Shooter: CMakeFiles/Shooter.dir/src/enemy.cpp.o
 Shooter: CMakeFiles/Shooter.dir/src/bullet.cpp.o
 Shooter: CMakeFiles/Shooter.dir/build.make
+Shooter: /usr/local/lib/libSDL2_ttf.so
 Shooter: CMakeFiles/Shooter.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/vishwajeet/udacity_cpp/capstone/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable Shooter"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Shooter.dir/link.txt --verbose=$(VERBOSE)

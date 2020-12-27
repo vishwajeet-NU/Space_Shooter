@@ -1,7 +1,8 @@
 #include "renderer.h"
 #include <iostream>
 #include <string>
-
+#include <SDL_ttf.h>
+#include <SDL_image.h>
 Renderer::Renderer(const std::size_t screen_width,
                    const std::size_t screen_height,
                    const std::size_t grid_width, const std::size_t grid_height)
@@ -37,6 +38,8 @@ Renderer::Renderer(const std::size_t screen_width,
 void Renderer::Render(std::vector<enemy*> &ArrayEnemies, std::vector<bullet*> &PlayerBullets, std::vector<bullet*> &BossBullets, std::vector<bullet*> &EnemyBullets, 
   player &player_one, boss * boss_enemy_one, int NumberOfEnemies)
 {
+
+
   // SDL_Rect block;
   // block.w = screen_width / grid_width;
   // block.h = screen_height / grid_height;

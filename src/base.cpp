@@ -60,7 +60,6 @@ int base_shape::GetHealth()
     return _health;
 }
 
-
 SDL_Rect * base_shape::GetRect()
 {
     SDL_Rect *temp = &(_dim);

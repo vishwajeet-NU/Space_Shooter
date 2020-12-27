@@ -52,6 +52,7 @@ private:
     int _EnemyGapSize_y; 
 
     bool _status;
+    int _score;
 
 };
 

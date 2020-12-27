@@ -313,6 +313,7 @@ CMakeFiles/Shooter.dir/src/game.cpp.o: /usr/include/SDL2/SDL_version.h
 CMakeFiles/Shooter.dir/src/game.cpp.o: /usr/include/SDL2/SDL_video.h
 CMakeFiles/Shooter.dir/src/game.cpp.o: /usr/include/SDL2/begin_code.h
 CMakeFiles/Shooter.dir/src/game.cpp.o: /usr/include/SDL2/close_code.h
+CMakeFiles/Shooter.dir/src/game.cpp.o: /usr/local/include/SDL2/SDL_ttf.h
 
 CMakeFiles/Shooter.dir/src/main.cpp.o: ../src/base.h
 CMakeFiles/Shooter.dir/src/main.cpp.o: ../src/boss_enemy.h
@@ -370,6 +371,7 @@ CMakeFiles/Shooter.dir/src/main.cpp.o: /usr/include/SDL2/SDL_version.h
 CMakeFiles/Shooter.dir/src/main.cpp.o: /usr/include/SDL2/SDL_video.h
 CMakeFiles/Shooter.dir/src/main.cpp.o: /usr/include/SDL2/begin_code.h
 CMakeFiles/Shooter.dir/src/main.cpp.o: /usr/include/SDL2/close_code.h
+CMakeFiles/Shooter.dir/src/main.cpp.o: /usr/local/include/SDL2/SDL_ttf.h
 
 CMakeFiles/Shooter.dir/src/player.cpp.o: ../src/base.h
 CMakeFiles/Shooter.dir/src/player.cpp.o: ../src/common.h
@@ -475,4 +477,5 @@ CMakeFiles/Shooter.dir/src/renderer.cpp.o: /usr/include/SDL2/SDL_version.h
 CMakeFiles/Shooter.dir/src/renderer.cpp.o: /usr/include/SDL2/SDL_video.h
 CMakeFiles/Shooter.dir/src/renderer.cpp.o: /usr/include/SDL2/begin_code.h
 CMakeFiles/Shooter.dir/src/renderer.cpp.o: /usr/include/SDL2/close_code.h
+CMakeFiles/Shooter.dir/src/renderer.cpp.o: /usr/local/include/SDL2/SDL_ttf.h
 

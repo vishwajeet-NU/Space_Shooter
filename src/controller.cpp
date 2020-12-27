@@ -13,13 +13,13 @@ void Controller::Move(Direction dir, player &Player_one)
   int updated_x = player_location.x + dir * speed;
   int updated_y = player_location.y;
 
-  if(updated_x > (ScreenWidth - 30))
+  if(updated_x > (ScreenWidth - 50))
   {
-    updated_x = ScreenWidth -30;
+    updated_x = ScreenWidth -50;
   }
-  if(updated_x < 30 )
+  if(updated_x < 50 )
   {
-    updated_x = 30;
+    updated_x = 50;
   }
 
   Player_one.SetBodyLocation( updated_x, updated_y );

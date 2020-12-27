@@ -12,6 +12,7 @@ boss::boss()
     _dim.y = 20;
     _health = 5;
     _body_speed = 1;
+    _points = 30;
     _alive = true; 
 
 }

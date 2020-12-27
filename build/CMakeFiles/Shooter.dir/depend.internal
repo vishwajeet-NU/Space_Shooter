@@ -314,6 +314,7 @@ CMakeFiles/Shooter.dir/src/game.cpp.o
  /usr/include/SDL2/SDL_video.h
  /usr/include/SDL2/begin_code.h
  /usr/include/SDL2/close_code.h
+ /usr/local/include/SDL2/SDL_ttf.h
 CMakeFiles/Shooter.dir/src/main.cpp.o
  /home/vishwajeet/udacity_cpp/capstone/src/base.h
  /home/vishwajeet/udacity_cpp/capstone/src/boss_enemy.h
@@ -371,6 +372,7 @@ CMakeFiles/Shooter.dir/src/main.cpp.o
  /usr/include/SDL2/SDL_video.h
  /usr/include/SDL2/begin_code.h
  /usr/include/SDL2/close_code.h
+ /usr/local/include/SDL2/SDL_ttf.h
 CMakeFiles/Shooter.dir/src/player.cpp.o
  /home/vishwajeet/udacity_cpp/capstone/src/base.h
  /home/vishwajeet/udacity_cpp/capstone/src/common.h
@@ -476,3 +478,4 @@ CMakeFiles/Shooter.dir/src/renderer.cpp.o
  /usr/include/SDL2/SDL_video.h
  /usr/include/SDL2/begin_code.h
  /usr/include/SDL2/close_code.h
+ /usr/local/include/SDL2/SDL_ttf.h

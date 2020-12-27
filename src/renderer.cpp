@@ -1,8 +1,9 @@
 #include "renderer.h"
 #include <iostream>
 #include <string>
-#include <SDL_ttf.h>
-#include <SDL_image.h>
+
+
+
 Renderer::Renderer(const std::size_t screen_width,
                    const std::size_t screen_height,
                    const std::size_t grid_width, const std::size_t grid_height)
@@ -33,12 +34,50 @@ Renderer::Renderer(const std::size_t screen_width,
     std::cerr << "Renderer could not be created.\n";
     std::cerr << "SDL_Error: " << SDL_GetError() << "\n";
   }
+
+  int imgFlags = IMG_INIT_PNG;
+	if( !( IMG_Init( imgFlags ) & imgFlags ) )
+	{
+		printf( "SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError() );
+	}
+	if( TTF_Init() == -1 )
+	{
+		printf( "SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError() );
+	}
+}
+
+
+void Renderer::RenderText( int x, int y, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip )
+{
+	//Set rendering space and render to screen
+	SDL_Rect renderQuad = { x, y, mWidth, mWidth }; //change later
+
+	//Set clip rendering dimensions
+	if( clip != NULL )
+	{
+		renderQuad.w = clip->w;
+		renderQuad.h = clip->h;
+	}
+
+	//Render to screen
+	SDL_RenderCopyEx( sdl_renderer, mTexture, clip, &renderQuad, angle, center, flip );
+}
+
+void Renderer::loadMedia(std::string text)
+{
+	gFont = TTF_OpenFont( "../fonts/lazy.ttf", 10 );
+	SDL_Color textColor = { 0xFF, 0xFF, 0xFF };
+	SDL_Surface* textSurface = TTF_RenderText_Solid( gFont, text.c_str(), textColor );
+  mTexture = SDL_CreateTextureFromSurface( sdl_renderer, textSurface );
+	// mWidth = textSurface->w;
+	// mHeight = textSurface->h;
+
+	SDL_FreeSurface( textSurface );
 }
 
 void Renderer::Render(std::vector<enemy*> &ArrayEnemies, std::vector<bullet*> &PlayerBullets, std::vector<bullet*> &BossBullets, std::vector<bullet*> &EnemyBullets, 
-  player &player_one, boss * boss_enemy_one, int NumberOfEnemies)
+  player &player_one, boss * boss_enemy_one, int NumberOfEnemies, int Score)
 {
-
 
   // SDL_Rect block;
   // block.w = screen_width / grid_width;
@@ -91,7 +130,7 @@ void Renderer::Render(std::vector<enemy*> &ArrayEnemies, std::vector<bullet*> &P
 
 
   // Boss 
-  if(boss_enemy_one != nullptr)
+  if(boss_enemy_one->LifeStatus())
   {
     boss_enemy_one->ColorGetter(color);
     block = *(boss_enemy_one->GetRect());
@@ -124,6 +163,13 @@ void Renderer::Render(std::vector<enemy*> &ArrayEnemies, std::vector<bullet*> &P
     SDL_RenderFillRects(sdl_renderer, enemy_bullet_array, EnemyBullets.size());
   }
 
+  // Render Text 
+  // loadMedia("The");
+	// RenderText( 10, 250 );
+
+  std::string title{"Score: " + std::to_string(Score) + "     Player Health : " + std::to_string(player_one.GetHealth()) + "      Boss Health : " + std::to_string(boss_enemy_one->GetHealth())};
+  SDL_SetWindowTitle(sdl_window, title.c_str());
+
 
   // // Update Screen
   SDL_RenderPresent(sdl_renderer);
@@ -133,5 +179,6 @@ void Renderer::Render(std::vector<enemy*> &ArrayEnemies, std::vector<bullet*> &P
 
 Renderer::~Renderer() {
   SDL_DestroyWindow(sdl_window);
+
   SDL_Quit();
 }

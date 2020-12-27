@@ -11,6 +11,7 @@ enemy::enemy()
     _health = 1;
     _body_speed = 1;
     _xaxisSpeed = 15;
+    _points = 10;
     _alive = true; 
 }
 

@@ -12,7 +12,6 @@ bullet::bullet(enemy &E)
     _health = 1;
     _body_speed = 1;
     _alive = true; 
-    _bullet_owner = Source::Enemy;
 
 }
 bullet::bullet(player &P)
@@ -27,7 +26,6 @@ bullet::bullet(player &P)
     _health = 1;
     _body_speed = 2;
     _alive = true; 
-    _bullet_owner = Source::User;
 
 }
 bullet::bullet(boss &B)
@@ -42,6 +40,5 @@ bullet::bullet(boss &B)
     _health = 1;
     _body_speed = 1;
     _alive = true; 
-    _bullet_owner = Source::Boss;
     
 }

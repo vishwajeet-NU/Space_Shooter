@@ -6,7 +6,10 @@
 class boss : public base_shape
 {
     public:
-    boss();
+     boss();
+      int _points;
+    private:
+
 };
 
 #endif

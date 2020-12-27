@@ -4,7 +4,7 @@
 
 
 
-Game::Game():_NumberOfEnemies(36), _EnemyStart_x(30), _EnemyStart_y(100),_EnemyGapSize_x(80), _EnemyGapSize_y(50), _status(true), engine(dev())
+Game::Game():_NumberOfEnemies(36), _EnemyStart_x(30), _EnemyStart_y(100),_EnemyGapSize_x(80), _EnemyGapSize_y(50), _status(true), engine(dev()), _score{0}
 {
     _boss_direction = Direction::left;
     _enemy_direction = Direction::left;
@@ -76,25 +76,24 @@ Game::~Game()
 
 void Game::MoveBoss()
 {
-  int speed;
-  SDL_Point boss_location; 
-  _Boss_enemy->GetBodySpeed(speed);
-  _Boss_enemy->GetBodyLocation(boss_location);
-
-  int updated_x = boss_location.x + _boss_direction *  speed;
-  int updated_y = boss_location.y;
-
-  if(updated_x > (ScreenWidth - 30))
-  {
-      _boss_direction = Direction::left;
-  }
-  if(updated_x < 30 )
-  {
-      _boss_direction = Direction::right;
-  }
-
-  _Boss_enemy->SetBodyLocation( updated_x, updated_y );
-
+    if(_Boss_enemy->LifeStatus())
+    {
+        int speed;
+        SDL_Point boss_location; 
+        _Boss_enemy->GetBodySpeed(speed);
+        _Boss_enemy->GetBodyLocation(boss_location);
+        int updated_x = boss_location.x + _boss_direction *  speed;
+        int updated_y = boss_location.y;
+        if(updated_x > (ScreenWidth - 30))
+        {
+            _boss_direction = Direction::left;
+        }
+        if(updated_x < 30 )
+        {
+            _boss_direction = Direction::right;
+        }
+        _Boss_enemy->SetBodyLocation( updated_x, updated_y );
+    }
 }
 
 void Game::MoveEnemies()
@@ -180,7 +179,6 @@ void Game::MovePlayerBullets()
                 _player_bullets.erase(_player_bullets.begin()+counter);
                 break;
             }
-
             itr->SetBodyLocation( updated_x, updated_y );
             counter++;
         }
@@ -275,6 +273,7 @@ void Game::CheckPlayerBulletCollisions()
                         delete it;
                         _Enemy_instances.erase(_Enemy_instances.begin()+enemy_counter);
                         _NumberOfEnemies--;
+                        _score = _score + it->_points; 
                         break; 
                     }
                     collide = SDL_FALSE; 
@@ -291,14 +290,7 @@ void Game::CheckPlayerBulletCollisions()
                 {
                     _Boss_enemy->ReduceLife();
                     _player_bullets.erase(_player_bullets.begin()+bullet_counter);
-                    delete itr;
-
-                    if(!_Boss_enemy->LifeStatus())
-                    {
-                        delete _Boss_enemy;
-                        std::cout<<"Delete boss enemy \n ";
-                    }
-                
+                    delete itr;                
                 }
             }
 
@@ -395,7 +387,6 @@ void Game::loop(Renderer & renderer, Controller & controller)
     while(_status)
     {
         time2 = SDL_GetTicks();
-
         controller.HandleInput(_status,_Player, _player_bullets);
 
         if(time2 - time1 >1000 )
@@ -408,7 +399,7 @@ void Game::loop(Renderer & renderer, Controller & controller)
             Update(false);
         }
 
-        renderer.Render(_Enemy_instances, _player_bullets, _boss_bullets, _enemy_bullets, _Player,_Boss_enemy, _NumberOfEnemies);
+        renderer.Render(_Enemy_instances, _player_bullets, _boss_bullets, _enemy_bullets, _Player,_Boss_enemy, _NumberOfEnemies, _score);
 
         // std::cout<<"Player Health " << _Player.GetHealth()<<"\n";
         // std::cout<<"Boss Health " << _Boss_enemy->GetHealth()<<"\n";

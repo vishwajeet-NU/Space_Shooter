@@ -224,6 +224,12 @@ SDL2_BUILDING_LIBRARY_DIR:PATH=SDL2_BUILDING_LIBRARY_DIR-NOTFOUND
 //The directory containing a CMake configuration file for SDL2.
 SDL2_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/SDL2
 
+//Path to a file.
+SDL2_IMAGE_INCLUDE_DIR:PATH=/usr/include/SDL2
+
+//Path to a library.
+SDL2_IMAGE_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libSDL2_image.so
+
 //The directory containing a CMake configuration file for SDL2_LIBRARY.
 SDL2_LIBRARY_DIR:PATH=SDL2_LIBRARY_DIR-NOTFOUND
 
@@ -396,6 +402,12 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding SDL2_image
+FIND_PACKAGE_MESSAGE_DETAILS_SDL2_image:INTERNAL=[/usr/lib/x86_64-linux-gnu/libSDL2_image.so][/usr/include/SDL2][v2.0.5()]
 //Details about finding SDL2_ttf
 FIND_PACKAGE_MESSAGE_DETAILS_SDL2_ttf:INTERNAL=[/usr/local/lib/libSDL2_ttf.so][/usr/local/include/SDL2][v2.0.15()]
+//ADVANCED property for variable: SDL2_IMAGE_INCLUDE_DIR
+SDL2_IMAGE_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: SDL2_IMAGE_LIBRARY
+SDL2_IMAGE_LIBRARY-ADVANCED:INTERNAL=1
 

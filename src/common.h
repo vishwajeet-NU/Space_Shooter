@@ -11,4 +11,5 @@ constexpr std::size_t ScreenHeight{640};
 constexpr std::size_t GridWidth{32};
 constexpr std::size_t GridHeight{32};
 
+
 #endif

@@ -71,7 +71,7 @@ void Game::Update(bool move_enemies)
     Move(_Boss_enemy,_boss_direction);
     if(move_enemies)
     {
-        Move(_Enemy_instances,_enemy_direction);
+        Move(_Enemy_instances,_enemy_direction,_Player);
         CreateBullets(_Boss_enemy,_boss_bullets);
         CreateBullets(_Enemy_instances,_enemy_bullets,engine,_NumberOfEnemies);
     }
@@ -113,6 +113,7 @@ void Game::loop(Renderer & renderer, Controller & controller)
             _victory= true;
             break;
         }
+
         SDL_Delay(10);
     }
     _status = true; 

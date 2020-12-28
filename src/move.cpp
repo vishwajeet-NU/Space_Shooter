@@ -22,7 +22,7 @@ void Move(boss * Boss, Direction &_boss_direction)
     }
 }
 
-void Move(std::vector<enemy*> &Enemies, Direction &_enemy_direction )
+void Move(std::vector<enemy*> &Enemies, Direction &_enemy_direction, player &Player)
 {
     int speed;
     int horizontal_speed; 
@@ -40,6 +40,15 @@ void Move(std::vector<enemy*> &Enemies, Direction &_enemy_direction )
             int updated_x = enemy_location.x + _enemy_direction * horizontal_speed;
             int updated_y = enemy_location.y + speed;
             itr->SetBodyLocation( updated_x, updated_y );
+
+            if( updated_y > itr->GetPlayerKillDistance())
+            {
+                while(Player.LifeStatus())
+                {
+                    Player.ReduceLife();
+                }
+            }
+
         }
     }
 }

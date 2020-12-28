@@ -11,6 +11,7 @@
 
 
 void CreateBullets(boss * Boss, std::vector<bullet*> &BossBullets);
-void CreateBullets(std::vector<enemy*> &Enemies, std::vector<bullet*> &EnemyBullets,std::mt19937 engine, int _NumberOfEnemies);
+void CreateBullets(std::vector<enemy*> &Enemies, std::vector<bullet*> &EnemyBullets,std::mt19937 &engine, int _NumberOfEnemies);
+
 
 #endif

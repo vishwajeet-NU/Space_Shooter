@@ -48,6 +48,10 @@ common.h
 bullet.h
 /home/vishwajeet/udacity_cpp/capstone/src/bullet.h
 
+/home/vishwajeet/udacity_cpp/capstone/src/create_bullets.cpp
+create_bullets.h
+/home/vishwajeet/udacity_cpp/capstone/src/create_bullets.h
+
 /home/vishwajeet/udacity_cpp/capstone/src/create_bullets.h
 boss_enemy.h
 /home/vishwajeet/udacity_cpp/capstone/src/boss_enemy.h
@@ -69,6 +73,8 @@ base.h
 /home/vishwajeet/udacity_cpp/capstone/src/base.h
 vector
 -
+common.h
+/home/vishwajeet/udacity_cpp/capstone/src/common.h
 
 /home/vishwajeet/udacity_cpp/capstone/src/game.cpp
 game.h
@@ -127,14 +133,6 @@ common.h
 /home/vishwajeet/udacity_cpp/capstone/src/player.h
 base.h
 /home/vishwajeet/udacity_cpp/capstone/src/base.h
-
-/home/vishwajeet/udacity_cpp/capstone/src/renderer.cpp
-renderer.h
-/home/vishwajeet/udacity_cpp/capstone/src/renderer.h
-iostream
--
-string
--
 
 /home/vishwajeet/udacity_cpp/capstone/src/renderer.h
 vector

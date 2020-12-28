@@ -10,7 +10,7 @@
 
 
 void Move(boss * Boss, Direction &_boss_direction);
-void Move(std::vector<enemy*> &Enemies, Direction &_enemy_direction );
+void Move(std::vector<enemy*> &Enemies, Direction &_enemy_direction, player &Player);
 
 void MoveBullets(std::vector<bullet*> &Bullets);
 

@@ -42,6 +42,7 @@ private:
     int _EnemyGapSize_y; 
 
     bool _status;
+    bool _victory;
     int _score;
 
 };

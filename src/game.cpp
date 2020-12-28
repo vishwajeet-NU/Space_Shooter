@@ -4,7 +4,7 @@
 
 
 
-Game::Game():_NumberOfEnemies(36), _EnemyStart_x(30), _EnemyStart_y(100),_EnemyGapSize_x(80), _EnemyGapSize_y(50), _status(true), engine(dev()), _score{0}
+Game::Game():_NumberOfEnemies(36), _EnemyStart_x(30), _EnemyStart_y(100),_EnemyGapSize_x(80), _EnemyGapSize_y(50), _status(true), engine(dev()), _score{0}, _victory{false}
 {
     int counter_x = 0; 
     int counter_y = 0;
@@ -108,12 +108,23 @@ void Game::loop(Renderer & renderer, Controller & controller)
         }
 
         renderer.Render(_Enemy_instances, _player_bullets, _boss_bullets, _enemy_bullets, _Player,_Boss_enemy, _NumberOfEnemies, _score);
+        if(!_Boss_enemy->LifeStatus() && _Enemy_instances.size()==0)
+        {
+            _victory= true;
+            break;
+        }
         SDL_Delay(10);
     }
     _status = true; 
     while(_status && !_Player.LifeStatus())
     {
         controller.HandleInput(_status);
-        renderer.Render("Game Over");
+        renderer.Render("Game Over !!");
+    }
+    while(_status && _victory)
+    {
+        controller.HandleInput(_status);
+        renderer.Render("You Won !!         Score = " + std::to_string(_score));
+
     }
 } 

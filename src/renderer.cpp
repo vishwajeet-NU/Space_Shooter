@@ -3,7 +3,6 @@
 #include <string>
 
 
-
 Renderer::Renderer(const std::size_t screen_width, const std::size_t screen_height) : screen_width(screen_width), screen_height(screen_height)
   {
   // Initialize SDL
@@ -35,6 +34,12 @@ Renderer::Renderer(const std::size_t screen_width, const std::size_t screen_heig
 	if( TTF_Init() == -1 )
 	{
 		printf( "SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError() );
+	}
+
+	Font = TTF_OpenFont( "../fonts/AmaticSC-Regular.ttf", 48 );
+	if( Font == NULL )
+	{
+		printf( "Failed to load lazy font! SDL_ttf Error: %s\n", TTF_GetError() );
 	}
 }
 
@@ -129,16 +134,56 @@ void Renderer::Render(std::vector<enemy*> &ArrayEnemies, std::vector<bullet*> &P
 
 }
 
+void Renderer::LoadText(std::string textureText)
+{
+	SDL_Color textColor = { 0xFF, 0xFF, 0xFF };	
+	SDL_Surface* textSurface = TTF_RenderText_Solid( Font, textureText.c_str(), textColor );
+	if( textSurface == NULL )
+	{
+		printf( "Unable to render text surface! SDL_ttf Error: %s\n", TTF_GetError() );
+	}
+	else
+	{
+    mTexture = SDL_CreateTextureFromSurface( sdl_renderer, textSurface );
+	  if( mTexture == NULL )
+	  	{
+	  		printf( "Unable to create texture from rendered text! SDL Error: %s\n", SDL_GetError() );
+	  	}
+	  else
+	  	{
+	  		//Get image dimensions
+	  		mWidth = textSurface->w;
+	  		mHeight = textSurface->h;
+	  	}
+	  	//Get rid of old surface
+	  	SDL_FreeSurface( textSurface );
+  } 
+}
 
 
-void Renderer::Render(std::string gameover)
+void Renderer::RenderFont( int x, int y, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip )
+{
+	SDL_Rect renderQuad = { x, y, mWidth, mHeight };
+	if( clip != NULL )
+	{
+		renderQuad.w = clip->w;
+		renderQuad.h = clip->h;
+	}
+	SDL_RenderCopyEx( sdl_renderer, mTexture, clip, &renderQuad, angle, center, flip );
+}
+
+
+
+void Renderer::Render(std::string Message)
 {
   // // Clear screen
   SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
   SDL_RenderClear(sdl_renderer);
-  SDL_SetWindowTitle(sdl_window, gameover.c_str());
+  SDL_SetWindowTitle(sdl_window, Message.c_str());
+  LoadText(Message);
+  RenderFont( (ScreenWidth - mWidth)/2 , (ScreenWidth - mHeight)/2);
   SDL_RenderPresent(sdl_renderer);
-
+  
 }
 
 

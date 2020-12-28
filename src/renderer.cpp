@@ -11,7 +11,6 @@ Renderer::Renderer(const std::size_t screen_width, const std::size_t screen_heig
     std::cerr << "SDL could not initialize.\n";
     std::cerr << "SDL_Error: " << SDL_GetError() << "\n";
   }
-
   // Create Window
   sdl_window = SDL_CreateWindow("Game", SDL_WINDOWPOS_CENTERED,
                                 SDL_WINDOWPOS_CENTERED, screen_width,
@@ -21,7 +20,6 @@ Renderer::Renderer(const std::size_t screen_width, const std::size_t screen_heig
     std::cerr << "Window could not be created.\n";
     std::cerr << " SDL_Error: " << SDL_GetError() << "\n";
   }
-
   // Create renderer
   sdl_renderer = SDL_CreateRenderer(sdl_window, -1, SDL_RENDERER_ACCELERATED);
   if (nullptr == sdl_renderer) {
@@ -40,72 +38,43 @@ Renderer::Renderer(const std::size_t screen_width, const std::size_t screen_heig
 	}
 }
 
-
-void Renderer::RenderText( int x, int y, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip )
+void Renderer::fillarray(std::vector<enemy*> &ArrayEnemies, int &NumberOfEnemies, SDL_Rect *arr)
 {
-	//Set rendering space and render to screen
-	SDL_Rect renderQuad = { x, y, mWidth, mWidth }; //change later
-
-	//Set clip rendering dimensions
-	if( clip != NULL )
-	{
-		renderQuad.w = clip->w;
-		renderQuad.h = clip->h;
-	}
-
-	//Render to screen
-	SDL_RenderCopyEx( sdl_renderer, mTexture, clip, &renderQuad, angle, center, flip );
-}
-
-void Renderer::loadMedia(std::string text)
-{
-	gFont = TTF_OpenFont( "../fonts/lazy.ttf", 10 );
-	SDL_Color textColor = { 0xFF, 0xFF, 0xFF };
-	SDL_Surface* textSurface = TTF_RenderText_Solid( gFont, text.c_str(), textColor );
-  mTexture = SDL_CreateTextureFromSurface( sdl_renderer, textSurface );
-	// mWidth = textSurface->w;
-	// mHeight = textSurface->h;
-
-	SDL_FreeSurface( textSurface );
-}
-
-void Renderer::Render(std::vector<enemy*> &ArrayEnemies, std::vector<bullet*> &PlayerBullets, std::vector<bullet*> &BossBullets, std::vector<bullet*> &EnemyBullets, 
-  player &player_one, boss * boss_enemy_one, int NumberOfEnemies, int Score)
-{
-
-  // SDL_Rect block;
-  // block.w = screen_width / grid_width;
-  // block.h = screen_height / grid_height;
-
-  SDL_Rect enemy_array[NumberOfEnemies];
-  SDL_Rect player_bullet_array[PlayerBullets.size()];
-  SDL_Rect boss_bullet_array[BossBullets.size()];
-  SDL_Rect enemy_bullet_array[EnemyBullets.size()];
-
   for(int i=0; i<NumberOfEnemies; i++)
+    {
+      arr[i] = *(ArrayEnemies[i]->GetRect());
+    }
+}
+
+void Renderer::fillarray(std::vector<bullet*> &Bullets, SDL_Rect *arr)
+{
+
+  for(int i=0; i<Bullets.size(); i++)
   {
-    enemy_array[i] = *(ArrayEnemies[i]->GetRect());
+    arr[i] = *(Bullets[i]->GetRect());
   }
+}
 
-  for(int i=0; i<PlayerBullets.size(); i++)
+void Renderer::RenderBullets(std::vector<bullet*> &Bullets, SDL_Rect *arr )
+{
+  Color color;
+  if(Bullets.size()>0)
   {
-    player_bullet_array[i] = *(PlayerBullets[i]->GetRect());
-  }
+    Bullets[0]->ColorGetter(color);
+    SDL_SetRenderDrawColor(sdl_renderer, color.red, color.green, color.blue, 0xFF);
+    SDL_RenderFillRects(sdl_renderer, arr, Bullets.size());
+  }  
+}
 
-  for(int i=0; i<BossBullets.size(); i++)
-  {
-    boss_bullet_array[i] = *(BossBullets[i]->GetRect());
-  }
+void Renderer::RenderTextbar(int Score,player &player_one,boss * boss_enemy_one)
+{
+  std::string title{"Score: " + std::to_string(Score) + "     Player Health : " + std::to_string(player_one.GetHealth()) + "      Boss Health : "
+  + std::to_string(boss_enemy_one->GetHealth())};
+  SDL_SetWindowTitle(sdl_window, title.c_str());
+}
 
-  for(int i=0; i<EnemyBullets.size(); i++)
-  {
-    enemy_bullet_array[i] = *(EnemyBullets[i]->GetRect());
-  }
-
-  // // Clear screen
-  SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
-  SDL_RenderClear(sdl_renderer);
-
+void Renderer::RenderObjects(player &player_one,std::vector<enemy*> &ArrayEnemies, SDL_Rect *enemy_array, int &NumberOfEnemies, boss * boss_enemy_one)
+{
   Color color;
 
   // Player 
@@ -122,7 +91,6 @@ void Renderer::Render(std::vector<enemy*> &ArrayEnemies, std::vector<bullet*> &P
     SDL_RenderFillRects(sdl_renderer, enemy_array, NumberOfEnemies);
   }
 
-
   // Boss 
   if(boss_enemy_one->LifeStatus())
   {
@@ -131,45 +99,48 @@ void Renderer::Render(std::vector<enemy*> &ArrayEnemies, std::vector<bullet*> &P
     SDL_SetRenderDrawColor(sdl_renderer, color.red, color.green, color.blue, 0xFF);
     SDL_RenderFillRect(sdl_renderer, &block);
   }
+}
 
-  // BossBullets 
-  if(BossBullets.size()>0)
-  {
-    BossBullets[0]->ColorGetter(color);
-    SDL_SetRenderDrawColor(sdl_renderer, color.red, color.green, color.blue, 0xFF);
-    SDL_RenderFillRects(sdl_renderer, boss_bullet_array, BossBullets.size());
-  }
+void Renderer::Render(std::vector<enemy*> &ArrayEnemies, std::vector<bullet*> &PlayerBullets, std::vector<bullet*> &BossBullets, std::vector<bullet*> &EnemyBullets, 
+  player &player_one, boss * boss_enemy_one, int NumberOfEnemies, int Score)
+{
 
+  SDL_Rect enemy_array[NumberOfEnemies] , player_bullet_array[PlayerBullets.size()] , boss_bullet_array[BossBullets.size()], 
+  enemy_bullet_array[EnemyBullets.size()];
 
-  // PlayerBullets 
-  if(PlayerBullets.size()>0)
-  {
-    PlayerBullets[0]->ColorGetter(color);
-    SDL_SetRenderDrawColor(sdl_renderer, color.red, color.green, color.blue, 0xFF);
-    SDL_RenderFillRects(sdl_renderer, player_bullet_array, PlayerBullets.size());
-  }
+  fillarray(ArrayEnemies,NumberOfEnemies,enemy_array);
+  fillarray(PlayerBullets,player_bullet_array);
+  fillarray(BossBullets,boss_bullet_array);
+  fillarray(EnemyBullets,enemy_bullet_array);
 
-  // EnemyBullets 
-  if(EnemyBullets.size()>0)
-  {
-    EnemyBullets[0]->ColorGetter(color);
-    SDL_SetRenderDrawColor(sdl_renderer, color.red, color.green, color.blue, 0xFF);
-    SDL_RenderFillRects(sdl_renderer, enemy_bullet_array, EnemyBullets.size());
-  }
+  SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
+  SDL_RenderClear(sdl_renderer);
 
-  // Render Text 
-  // loadMedia("The");
-	// RenderText( 10, 250 );
+  RenderObjects(player_one,ArrayEnemies,enemy_array,NumberOfEnemies,boss_enemy_one);
 
-  std::string title{"Score: " + std::to_string(Score) + "     Player Health : " + std::to_string(player_one.GetHealth()) + "      Boss Health : " + std::to_string(boss_enemy_one->GetHealth())};
-  SDL_SetWindowTitle(sdl_window, title.c_str());
+  RenderBullets(BossBullets,boss_bullet_array);
+  RenderBullets(PlayerBullets,player_bullet_array);
+  RenderBullets(EnemyBullets,enemy_bullet_array);
 
+  RenderTextbar(Score,player_one,boss_enemy_one);
 
   // // Update Screen
   SDL_RenderPresent(sdl_renderer);
 
+}
+
+
+
+void Renderer::Render(std::string gameover)
+{
+  // // Clear screen
+  SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
+  SDL_RenderClear(sdl_renderer);
+  SDL_SetWindowTitle(sdl_window, gameover.c_str());
+  SDL_RenderPresent(sdl_renderer);
 
 }
+
 
 Renderer::~Renderer() {
   SDL_DestroyWindow(sdl_window);

@@ -109,3 +109,17 @@ void Controller::HandleInput(bool &running, player &Player_one, std::vector<bull
   }
 
 }
+
+void Controller::HandleInput(bool &running)
+{
+  SDL_Event e;
+  while (SDL_PollEvent(&e)) 
+  {
+   
+    if (e.type == SDL_QUIT) 
+    {
+      running = false;
+    }
+  }
+
+}

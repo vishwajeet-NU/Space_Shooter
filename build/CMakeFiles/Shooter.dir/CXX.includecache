@@ -36,10 +36,6 @@ enemy.h
 bullet.h
 /home/vishwajeet/udacity_cpp/capstone/src/bullet.h
 
-/home/vishwajeet/udacity_cpp/capstone/src/collison.cpp
-collision.h
-/home/vishwajeet/udacity_cpp/capstone/src/collision.h
-
 /home/vishwajeet/udacity_cpp/capstone/src/common.h
 iostream
 -
@@ -131,6 +127,14 @@ common.h
 /home/vishwajeet/udacity_cpp/capstone/src/player.h
 base.h
 /home/vishwajeet/udacity_cpp/capstone/src/base.h
+
+/home/vishwajeet/udacity_cpp/capstone/src/renderer.cpp
+renderer.h
+/home/vishwajeet/udacity_cpp/capstone/src/renderer.h
+iostream
+-
+string
+-
 
 /home/vishwajeet/udacity_cpp/capstone/src/renderer.h
 vector

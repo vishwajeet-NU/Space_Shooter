@@ -8,6 +8,8 @@
 class Controller {
  public:
   void HandleInput(bool &running, player &Player_one, std::vector<bullet*> &Player_bullets);
+  void HandleInput(bool &running);
+
  private:
     void Move(Direction dir, player &Player_one);
     void Shoot(player &Player_one,  std::vector<bullet*> &Player_bullets);

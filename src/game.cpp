@@ -4,7 +4,7 @@
 
 
 
-Game::Game():_NumberOfEnemies(36), _EnemyStart_x(30), _EnemyStart_y(100),_EnemyGapSize_x(80), _EnemyGapSize_y(50), _status(true), engine(dev()), _score{0}, _level{1}
+Game::Game():_NumberOfEnemies(36), _EnemyStart_x(30), _EnemyStart_y(100),_EnemyGapSize_x(80), _EnemyGapSize_y(50), _status(true), engine(dev()), _score{0}
 {
     int counter_x = 0; 
     int counter_y = 0;
@@ -92,7 +92,7 @@ void Game::loop(Renderer & renderer, Controller & controller)
     int time2;
 
     time1 = SDL_GetTicks();
-    while(_status)
+    while(_status && _Player.LifeStatus())
     {
         time2 = SDL_GetTicks();
         controller.HandleInput(_status,_Player, _player_bullets);
@@ -110,8 +110,10 @@ void Game::loop(Renderer & renderer, Controller & controller)
         renderer.Render(_Enemy_instances, _player_bullets, _boss_bullets, _enemy_bullets, _Player,_Boss_enemy, _NumberOfEnemies, _score);
         SDL_Delay(10);
     }
-    if(!_Player.LifeStatus())
+    _status = true; 
+    while(_status && !_Player.LifeStatus())
     {
-        std::cout<<"Player Killed \n";
+        controller.HandleInput(_status);
+        renderer.Render("Game Over");
     }
 } 

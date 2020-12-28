@@ -44,8 +44,6 @@ private:
     bool _status;
     int _score;
 
-    int _level; 
-
 };
 
 

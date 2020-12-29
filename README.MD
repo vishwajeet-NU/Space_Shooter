@@ -1,6 +1,6 @@
-##Shooter
+## Shooter
 
-###Author: 
+### Author: 
 Vishwajeet Karmarkar
 vishwajeet@u.northwestern.edu
 

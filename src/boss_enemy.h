@@ -8,6 +8,8 @@ class boss : public base_shape
     public:
      boss();
       int _points;
+      void LevelUp() override;
+
     private:
 
 };

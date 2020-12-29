@@ -12,7 +12,9 @@ class enemy : public base_shape
         void GetBodySpeedHorizontal(int &speed);
         int GetPlayerKillDistance();
         int _points;
+        void LevelUp() override;
     private:
+
         int _xaxisSpeed;
         int _playerKillDistance;    
 };

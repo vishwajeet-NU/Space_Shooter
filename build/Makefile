@@ -285,6 +285,33 @@ src/create_bullets.cpp.s:
 	$(MAKE) -f CMakeFiles/Shooter.dir/build.make CMakeFiles/Shooter.dir/src/create_bullets.cpp.s
 .PHONY : src/create_bullets.cpp.s
 
+src/create_enemies.o: src/create_enemies.cpp.o
+
+.PHONY : src/create_enemies.o
+
+# target to build an object file
+src/create_enemies.cpp.o:
+	$(MAKE) -f CMakeFiles/Shooter.dir/build.make CMakeFiles/Shooter.dir/src/create_enemies.cpp.o
+.PHONY : src/create_enemies.cpp.o
+
+src/create_enemies.i: src/create_enemies.cpp.i
+
+.PHONY : src/create_enemies.i
+
+# target to preprocess a source file
+src/create_enemies.cpp.i:
+	$(MAKE) -f CMakeFiles/Shooter.dir/build.make CMakeFiles/Shooter.dir/src/create_enemies.cpp.i
+.PHONY : src/create_enemies.cpp.i
+
+src/create_enemies.s: src/create_enemies.cpp.s
+
+.PHONY : src/create_enemies.s
+
+# target to generate assembly for a file
+src/create_enemies.cpp.s:
+	$(MAKE) -f CMakeFiles/Shooter.dir/build.make CMakeFiles/Shooter.dir/src/create_enemies.cpp.s
+.PHONY : src/create_enemies.cpp.s
+
 src/enemy.o: src/enemy.cpp.o
 
 .PHONY : src/enemy.o
@@ -474,6 +501,9 @@ help:
 	@echo "... src/create_bullets.o"
 	@echo "... src/create_bullets.i"
 	@echo "... src/create_bullets.s"
+	@echo "... src/create_enemies.o"
+	@echo "... src/create_enemies.i"
+	@echo "... src/create_enemies.s"
 	@echo "... src/enemy.o"
 	@echo "... src/enemy.i"
 	@echo "... src/enemy.s"

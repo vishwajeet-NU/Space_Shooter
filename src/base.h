@@ -22,6 +22,7 @@ class base_shape
         int GetHealth();
         void ReduceLife();
         bool LifeStatus();
+        virtual void LevelUp() {}
         SDL_Rect *GetRect();
 
     protected:

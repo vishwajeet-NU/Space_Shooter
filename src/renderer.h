@@ -11,6 +11,15 @@
 #include "boss_enemy.h"
 #include "bullet.h"
 
+struct BackGroundColor
+{
+    SDL_Color Black = {0x1E, 0x1E, 0x1E, 0xFF};
+    SDL_Color Blue = {0x00, 0x00, 0xFF, 0xFF};
+    SDL_Color Brown = {0x3A, 0x00, 0x00, 0xFF};
+    SDL_Color Green = {0x73, 0xA6, 0x73, 0xFF};
+    
+};
+
 
 class Renderer {
  public:
@@ -18,9 +27,9 @@ class Renderer {
   ~Renderer();
   
   void Render(std::vector<enemy*> &ArrayEnemies, std::vector<bullet*> &PlayerBullets, std::vector<bullet*> &BossBullets, std::vector<bullet*> &EnemyBullets, 
-  player &player_one, boss * boss_enemy_one, int NumberOfEnemies, int Score);
+  player &player_one, boss * boss_enemy_one, int NumberOfEnemies, int Score, SDL_Color &_backColor);
   
-  void Render(std::string Message);
+  void Render(std::string Message,SDL_Color &_backColor);
  private:
   SDL_Window *sdl_window;
   SDL_Renderer *sdl_renderer;

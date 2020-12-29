@@ -15,7 +15,7 @@ find_package(SDL2_image REQUIRED)
 
 include_directories(${SDL2_INCLUDE_DIRS}  ${SDL2_IMAGE_INCLUDE_DIR} ${SDL2_TTF_INCLUDE_DIR} src)
 
-add_executable(Shooter src/main.cpp src/renderer.cpp src/game.cpp src/base.cpp src/controller.cpp src/player.cpp src/boss_enemy.cpp src/enemy.cpp src/bullet.cpp src/move.cpp src/create_bullets.cpp src/collison.cpp)
+add_executable(Shooter src/main.cpp src/renderer.cpp src/game.cpp src/base.cpp src/controller.cpp src/player.cpp src/boss_enemy.cpp src/enemy.cpp src/bullet.cpp src/move.cpp src/create_bullets.cpp src/collison.cpp src/create_enemies.cpp)
 
 string(STRIP ${SDL2_LIBRARIES} SDL2_LIBRARIES)
 

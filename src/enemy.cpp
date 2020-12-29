@@ -26,3 +26,10 @@ int enemy::GetPlayerKillDistance()
 {
     return _playerKillDistance;
 }
+
+void enemy::LevelUp()
+{
+    _body_speed++;
+    _xaxisSpeed++;
+    _points++;
+}

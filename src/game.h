@@ -8,8 +8,10 @@
 #include "controller.h"
 #include "move.h"
 #include "create_bullets.h"
+#include "create_enemies.h"
 #include "collision.h"
 #include "common.h"
+
 
 
 class Game
@@ -21,17 +23,16 @@ public:
 private: 
     void Update(bool move_enemies);
 
-    std::vector<enemy*> _Enemy_instances;
     player _Player;
     boss * _Boss_enemy;
 
     Direction _boss_direction;
     Direction _enemy_direction;
- 
+
+    std::vector<enemy*> _Enemy_instances;
     std::vector<bullet*> _player_bullets;
     std::vector<bullet*> _boss_bullets;
     std::vector<bullet*> _enemy_bullets;
-
     std::random_device dev;
     std::mt19937 engine;
 
@@ -40,11 +41,13 @@ private:
     int _EnemyStart_y;
     int _EnemyGapSize_x; 
     int _EnemyGapSize_y; 
+    int _score;
+    int _level;
 
     bool _status;
     bool _victory;
-    int _score;
 
+	BackGroundColor _backgroundcolor;	
 };
 
 

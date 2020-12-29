@@ -18,4 +18,9 @@ boss::boss()
 }
 
 
-
+void boss::LevelUp()
+{
+    _body_speed++;
+    _points+2;
+    _health++;
+}

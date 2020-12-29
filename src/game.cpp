@@ -1,10 +1,13 @@
+/// Author: Vishwajeet Karmarkar
+/// vishwajeet@u.northwestern.edu
+
 #include "game.h"
 #include <memory>
 #include <thread>
 
 
 
-Game::Game():_NumberOfEnemies(4), _EnemyStart_x(30), _EnemyStart_y(100),_EnemyGapSize_x(80), _EnemyGapSize_y(50), _status(true), engine(dev()), _score{0}, _victory{false}, _level{1}
+Game::Game():_NumberOfEnemies(36), _EnemyStart_x(30), _EnemyStart_y(100),_EnemyGapSize_x(80), _EnemyGapSize_y(50), _status(true), engine(dev()), _score{0}, _victory{false}, _level{1}
 {
 
     int x_location = _EnemyStart_x;
@@ -71,6 +74,7 @@ void Game::loop(Renderer & renderer, Controller & controller)
     int time1;
     int time2;
     int no_of_enemies = _NumberOfEnemies;
+    int boss_h = _Boss_enemy->GetHealth();
 
     time1 = SDL_GetTicks();
     while(_status && _Player.LifeStatus())
@@ -88,9 +92,10 @@ void Game::loop(Renderer & renderer, Controller & controller)
             Update(false);
         }
 
-        renderer.Render(_Enemy_instances, _player_bullets, _boss_bullets, _enemy_bullets, _Player,_Boss_enemy, _NumberOfEnemies, _score, col);
+        renderer.Render(_Enemy_instances, _player_bullets, _boss_bullets, _enemy_bullets, _Player,_Boss_enemy, _NumberOfEnemies, _score, col, _level);
         if(!_Boss_enemy->LifeStatus() && _Enemy_instances.size()==0)
         {
+            _level++;
             if(_level ==11)
             {
                 _victory= true;
@@ -98,8 +103,9 @@ void Game::loop(Renderer & renderer, Controller & controller)
             }
             renderer.Render("Level Up !!",_backgroundcolor.Green);
             col = (col.r == _backgroundcolor.Black.r && col.g == _backgroundcolor.Black.g && col.b == _backgroundcolor.Black.b)  ? _backgroundcolor.Brown : _backgroundcolor.Black;
-            SDL_Delay(500);
+            SDL_Delay(1500);
             _Boss_enemy = new boss; 
+            _Boss_enemy->SetHealth(boss_h);
             _Boss_enemy->LevelUp();
             _NumberOfEnemies = no_of_enemies;
             CreateEnemies(_Enemy_instances,_NumberOfEnemies,_EnemyStart_y, _EnemyStart_x, _EnemyGapSize_y, _EnemyGapSize_x, _EnemyStart_x);
@@ -117,7 +123,7 @@ void Game::loop(Renderer & renderer, Controller & controller)
     while(_status && !_Player.LifeStatus())
     {
         controller.HandleInput(_status);
-        renderer.Render("Game Over !!",_backgroundcolor.Blue);
+        renderer.Render("Game Over !!       Score = " + std::to_string(_score),_backgroundcolor.Blue);
     }
     while(_status && _victory)
     {

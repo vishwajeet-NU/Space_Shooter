@@ -1,6 +1,7 @@
+/// Author: Vishwajeet Karmarkar
+/// vishwajeet@u.northwestern.edu
+
 #include "collision.h"
-
-
 void CheckBulletCollisions(boss * Boss, std::vector<enemy*> &EnemyInstances, std::vector<bullet*> &Bullets, int &_score, int &_NumberOfEnemies)
 {
     if(Bullets.size()>0)

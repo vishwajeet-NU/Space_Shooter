@@ -1,3 +1,6 @@
+/// Author: Vishwajeet Karmarkar
+/// vishwajeet@u.northwestern.edu
+
 #include "player.h"
 
 player::player()

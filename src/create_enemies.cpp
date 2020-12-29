@@ -1,3 +1,6 @@
+/// Author: Vishwajeet Karmarkar
+/// vishwajeet@u.northwestern.edu
+
 #include "create_enemies.h"
 
 void CreateEnemies(std::vector<enemy*> &EnemyInstances, int &NumberOfEnemies, int y_location, int x_location, int EnemyGapSizeY, int EnemyGapSizex, int EnemyStartx)

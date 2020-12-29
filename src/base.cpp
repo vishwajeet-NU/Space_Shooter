@@ -1,3 +1,6 @@
+/// Author: Vishwajeet Karmarkar
+/// vishwajeet@u.northwestern.edu
+
 #include "base.h"
 
 void base_shape::ColorGetter(Color &color)
@@ -23,7 +26,10 @@ void base_shape::SetBodyDimension(int &width, int &height)
     _dim.w = width; 
     _dim.h = height; 
 }
-
+void base_shape::SetHealth(int health)
+{
+    _health = health;
+}
 void base_shape::GetBodyLocation(SDL_Point &loc) const 
 {
     loc.x = _dim.x;

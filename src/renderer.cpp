@@ -1,3 +1,6 @@
+/// Author: Vishwajeet Karmarkar
+/// vishwajeet@u.northwestern.edu
+
 #include "renderer.h"
 #include <iostream>
 #include <string>
@@ -71,10 +74,11 @@ void Renderer::RenderBullets(std::vector<bullet*> &Bullets, SDL_Rect *arr )
   }  
 }
 
-void Renderer::RenderTextbar(int Score,player &player_one,boss * boss_enemy_one)
+void Renderer::RenderTextbar(int Score,player &player_one,boss * boss_enemy_one,int level)
 {
-  std::string title{"Score: " + std::to_string(Score) + "     Player Health : " + std::to_string(player_one.GetHealth()) + "      Boss Health : "
-  + std::to_string(boss_enemy_one->GetHealth())};
+  std::string title {"Score: " + std::to_string(Score) + "     Player Health : " + std::to_string(player_one.GetHealth()) + "      Boss Health : "
+  + std::to_string(boss_enemy_one->GetHealth()) + "     Level : " + std::to_string(level) };
+
   SDL_SetWindowTitle(sdl_window, title.c_str());
 }
 
@@ -148,7 +152,7 @@ void Renderer::RenderFont( int x, int y, SDL_Rect* clip, double angle, SDL_Point
 
 
 void Renderer::Render(std::vector<enemy*> &ArrayEnemies, std::vector<bullet*> &PlayerBullets, std::vector<bullet*> &BossBullets, std::vector<bullet*> &EnemyBullets, 
-  player &player_one, boss * boss_enemy_one, int NumberOfEnemies, int Score, SDL_Color & _backColor)
+  player &player_one, boss * boss_enemy_one, int NumberOfEnemies, int Score, SDL_Color & _backColor, int level)
 {
 
   SDL_Rect enemy_array[NumberOfEnemies] , player_bullet_array[PlayerBullets.size()] , boss_bullet_array[BossBullets.size()], 
@@ -168,7 +172,7 @@ void Renderer::Render(std::vector<enemy*> &ArrayEnemies, std::vector<bullet*> &P
   RenderBullets(PlayerBullets,player_bullet_array);
   RenderBullets(EnemyBullets,enemy_bullet_array);
 
-  RenderTextbar(Score,player_one,boss_enemy_one);
+  RenderTextbar(Score,player_one,boss_enemy_one,level);
 
   // // Update Screen
   SDL_RenderPresent(sdl_renderer);

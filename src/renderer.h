@@ -1,3 +1,6 @@
+/// Author: Vishwajeet Karmarkar
+/// vishwajeet@u.northwestern.edu
+
 #ifndef RENDERER_H
 #define RENDERER_H
 
@@ -27,7 +30,7 @@ class Renderer {
   ~Renderer();
   
   void Render(std::vector<enemy*> &ArrayEnemies, std::vector<bullet*> &PlayerBullets, std::vector<bullet*> &BossBullets, std::vector<bullet*> &EnemyBullets, 
-  player &player_one, boss * boss_enemy_one, int NumberOfEnemies, int Score, SDL_Color &_backColor);
+  player &player_one, boss * boss_enemy_one, int NumberOfEnemies, int Score, SDL_Color &_backColor, int level);
   
   void Render(std::string Message,SDL_Color &_backColor);
  private:
@@ -46,7 +49,7 @@ class Renderer {
   void fillarray(std::vector<bullet*> &Bullets, SDL_Rect *arr);
 
   void RenderBullets(std::vector<bullet*> &Bullets, SDL_Rect *arr );
-  void RenderTextbar(int Score,player &player_one,boss * boss_enemy_one);
+  void RenderTextbar(int Score,player &player_one,boss * boss_enemy_one,int level);
   void RenderObjects(player &player_one,std::vector<enemy*> &ArrayEnemies, SDL_Rect *enemy_array, int &NumberOfEnemies, boss * boss_enemy_one);
 
   void LoadText(std::string textureText);

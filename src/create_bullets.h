@@ -1,3 +1,6 @@
+/// Author: Vishwajeet Karmarkar
+/// vishwajeet@u.northwestern.edu
+
 #ifndef CREATEBULLETS_H
 #define CREATEBULLETS_H
 

@@ -1,3 +1,6 @@
+/// Author: Vishwajeet Karmarkar
+/// vishwajeet@u.northwestern.edu
+
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 #include "player.h"

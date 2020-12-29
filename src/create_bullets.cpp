@@ -1,3 +1,6 @@
+/// Author: Vishwajeet Karmarkar
+/// vishwajeet@u.northwestern.edu
+
 #include "create_bullets.h"
 
 void CreateBullets(boss * Boss, std::vector<bullet*> &BossBullets)

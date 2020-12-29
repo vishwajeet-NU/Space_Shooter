@@ -1,3 +1,6 @@
+/// Author: Vishwajeet Karmarkar
+/// vishwajeet@u.northwestern.edu
+
 #ifndef BASE_H
 #define BASE_H
 #include "SDL.h"
@@ -19,6 +22,7 @@ class base_shape
         void GetBodyLocation(SDL_Point &loc) const ;        
         void GetBodyDimension(int &width, int &height);
         void GetBodySpeed(int &speed);
+        void SetHealth(int health);
         int GetHealth();
         void ReduceLife();
         bool LifeStatus();

@@ -1,4 +1,8 @@
+/// Author: Vishwajeet Karmarkar
+/// vishwajeet@u.northwestern.edu
+
 #include "move.h"
+
 
 void Move(boss * Boss, Direction &_boss_direction)
 {
@@ -80,61 +84,3 @@ void MoveBullets(std::vector<bullet*> &Bullets)
         }
     }
 }
-
-// void Game::MovePlayerBullets(std::vector<bullet*> &EnemyBullets)
-// {
-//     int speed;
-//     SDL_Point bullet_location; 
-    
-//     if(EnemyBullets.size()>0)
-//     {
-//         int counter = 0; 
-//         for(auto itr:EnemyBullets)
-//         {
-//             itr->GetBodySpeed(speed);
-//             itr->GetBodyLocation(bullet_location);
-
-//             int updated_x = bullet_location.x;
-//             int updated_y = bullet_location.y + speed;
-//             if(updated_y > (ScreenHeight - 10))
-//             {
-//                 delete itr;
-//                 EnemyBullets.erase(EnemyBullets.begin()+counter);
-//                 break;
-//             }
-//             itr->SetBodyLocation( updated_x, updated_y );
-//             counter++;
-//         }
-//     }
-// }
-
-
-
-// void Game::MovePlayerBullets(std::vector<bullet*> &PlayerBullets)
-// {
-//     int speed;
-//     SDL_Point bullet_location; 
-
-//     if(PlayerBullets.size()>0)
-//     {
-//         int counter = 0; 
-//         for(auto itr:PlayerBullets)
-//         {
-//             itr->GetBodySpeed(speed);
-//             itr->GetBodyLocation(bullet_location);
-
-//             int updated_x = bullet_location.x;
-//             int updated_y = bullet_location.y - speed;
-//             if(updated_y < 10)
-//             {
-//                 delete itr;
-//                 PlayerBullets.erase(PlayerBullets.begin()+counter);
-//                 break;
-//             }
-//             itr->SetBodyLocation( updated_x, updated_y );
-//             counter++;
-//         }
-    
-//     }
-
-// }

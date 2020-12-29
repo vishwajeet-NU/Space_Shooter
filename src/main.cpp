@@ -1,3 +1,5 @@
+/// Author: Vishwajeet Karmarkar
+/// vishwajeet@u.northwestern.edu
 #include <iostream>
 #include "renderer.h"
 #include "common.h"

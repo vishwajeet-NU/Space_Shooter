@@ -1,3 +1,5 @@
+/// Author: Vishwajeet Karmarkar
+/// vishwajeet@u.northwestern.edu
 #ifndef GAME_H
 #define GAME_H
 

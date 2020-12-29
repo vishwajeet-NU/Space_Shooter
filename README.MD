@@ -1,7 +1,7 @@
 ## Shooter
 
 ### Author: 
-Vishwajeet Karmarkar
+Vishwajeet Karmarkar <br>
 vishwajeet@u.northwestern.edu
 
 

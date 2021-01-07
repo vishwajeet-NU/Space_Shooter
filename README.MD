@@ -9,8 +9,6 @@ vishwajeet@u.northwestern.edu
 ![image](media/gameover.gif)
 
 
-![image](media/C++_Shooter.png)
-
 This is a replica of the classic Space Shooter game written in C++. The aim of the game is to shoot all the enemies while avoiding their bullets. There are 10 levels 
 with increasing difficulty! <br>
 

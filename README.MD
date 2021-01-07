@@ -63,21 +63,3 @@ make
 ![image](media/levelup.gif)
 
 ![image](media/gameover.gif)
-
-
-
-Rubrics Covered <br>
-
-1) Loops, Functions, I/O : All points covered across the codebase <br>
-2) Object Oriented Programming points covered <br>
-* 1
-* 2   
-* 3
-* 5
-* 6 
-* 7
-* 8
-3) Memory Management  points covered <br>
-* 1
-* 2
-* 3

@@ -26,45 +26,6 @@ Structure : <br> <br>
 The src folder contains all the source c++ files, the include folder the corresponding header files. <br> 
 The cmake folder houses .cmake scripts useful to locate the SDL add-on libraries. 
 
-├── cmake <br>
-│   ├── FindSDL2_image.cmake <br>
-│   └── FindSDL2_ttf.cmake <br>
-├── CMakeLists.txt<br>
-├── fonts<br>
-│   └── AmaticSC-Regular.ttf <br>
-├── media<br>
-│   ├── C++_Shooter.png <br>
-│   ├── gameover.gif <br>
-│   └── levelup.gif <br>
-├── README.MD <br>
-└── src <br>
-    ├── base.cpp <br>
-    ├── base.h <br>
-    ├── boss_enemy.cpp <br>
-    ├── boss_enemy.h <br>
-    ├── bullet.cpp <br>
-    ├── bullet.h <br>
-    ├── collision.h <br>
-    ├── collison.cpp <br>
-    ├── common.h <br>
-    ├── controller.cpp <br>
-    ├── controller.h <br>
-    ├── create_bullets.cpp <br>
-    ├── create_bullets.h <br>
-    ├── create_enemies.cpp <br>
-    ├── create_enemies.h <br>
-    ├── enemy.cpp <br>
-    ├── enemy.h <br>
-    ├── game.cpp <br>
-    ├── game.h <br>
-    ├── main.cpp <br>
-    ├── move.cpp <br>
-    ├── move.h <br>
-    ├── player.cpp <br>
-    ├── player.h <br>
-    ├── renderer.cpp <br>
-    └── renderer.h <br>
-
 
 To play the game 
 

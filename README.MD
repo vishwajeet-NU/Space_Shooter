@@ -4,6 +4,10 @@
 Vishwajeet Karmarkar <br>
 vishwajeet@u.northwestern.edu
 
+![image](media/levelup.gif)
+
+![image](media/gameover.gif)
+
 
 ![image](media/C++_Shooter.png)
 
@@ -60,6 +64,3 @@ cmake ..
 make
 ```
 
-![image](media/levelup.gif)
-
-![image](media/gameover.gif)
